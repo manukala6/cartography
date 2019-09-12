@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>A D3 map</title>
+  <title>A D3 map of Boston ...  with rats!</title>
   <script src='https://d3js.org/d3.v4.min.js'></script>
   <script src="neighborhoods.js"></script>
   <script src='rodents.js'></script>
@@ -42,14 +42,17 @@
         .attr('d', geoPath);
 
     // add point layer from rodents
-    var rodents = svg.append('g')
+    var rodents = svg.append( "g" ).attr( "id", "rodents" );
     rodents.selectAll('path')
         .data(rodents_json.features)
         .enter()
         .append('path')
         .attr('fill', '#900')
         .attr('stroke', '#999')
-        .attr('d', geoPath);
+        .attr('d', geoPath)
+        .on('click', function () {
+          d3.select(this).remove();
+        });
 
     
   </script>
