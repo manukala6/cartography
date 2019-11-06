@@ -20,7 +20,7 @@
           .attr('height', height);  
 
     // obtain neighborhood data ?not sure how yet?
-    var neighborhoods = svg.append('g'); // how?
+    var neighborhoods = svg.append('g'); // how? solved: attaches 'g' element to svg, add data later (see ln 38)
 
     // projection on boston
     var albersProjection = d3.geoAlbers()
